@@ -2,16 +2,7 @@ import cv2
 from pytesseract import image_to_osd
 
 def correct_orientation(image):
-    """
-    Correct the orientation of a handwritten history card to 0°, 90°, 180°, or 270°.
-
-    Args:
-        image (numpy array): Input handwritten history card image.
-
-    Returns:
-        aligned_image (numpy array): Image with corrected orientation.
-        rotation_angle (int): Angle by which the image was rotated to align (0, 90, 180, 270).
-    """
+    
     # Detect orientation using Tesseract OSD
     osd = image_to_osd(image, output_type="dict")
     rotation_angle = osd.get("rotate", 0)
